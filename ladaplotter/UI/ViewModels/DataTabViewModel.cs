@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using ladaplotter.UI.MeasurementPlots;
 
 namespace ladaplotter.UI.ViewModels
 {
     public class DataTabViewModel : PropertyChangedBase
     {
         private DataListViewModel _dataListViewModel;
-        private DataPlotViewModel _dataPlotViewModel;
+        private LogDataPlotViewModel _dataPlotViewModel;
 
         public DataTabViewModel()
         {
             _dataListViewModel = new DataListViewModel();
-            _dataPlotViewModel = new DataPlotViewModel();
+            _dataPlotViewModel = new LogDataPlotViewModel();
         }
 
         public DataListViewModel LocalDataListViewModel
@@ -28,7 +29,7 @@ namespace ladaplotter.UI.ViewModels
             }
         }
 
-        public DataPlotViewModel DataPlotViewModel
+        public LogDataPlotViewModel DataPlotViewModel
         {
             get => _dataPlotViewModel;
             set

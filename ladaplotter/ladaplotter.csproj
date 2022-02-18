@@ -135,6 +135,10 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="UI\MeasurementPlots\IMeasurementPlotViewModel.cs" />
+    <Compile Include="UI\MeasurementPlots\LogDataPlotView.xaml.cs">
+      <DependentUpon>LogDataPlotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MeasurementPlots\LogDataPlotViewModel.cs" />
     <Compile Include="UI\MeasurementPlots\PositionMeasurementPlotView.xaml.cs">
       <DependentUpon>PositionMeasurementPlotView.xaml</DependentUpon>
     </Compile>
@@ -194,6 +198,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UI\MeasurementPlots\LogDataPlotView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\MeasurementPlots\PositionMeasurementPlotView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

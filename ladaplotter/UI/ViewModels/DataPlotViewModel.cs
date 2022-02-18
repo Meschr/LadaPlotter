@@ -28,7 +28,6 @@ namespace ladaplotter.UI.ViewModels
             {
                 _positionPlot = value;
                 InitPositionPlot();
-                NotifyOfPropertyChange(() => PositionPlot);
             }
         }
 
