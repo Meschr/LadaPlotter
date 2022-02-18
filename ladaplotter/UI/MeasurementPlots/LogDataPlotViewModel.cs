@@ -7,7 +7,7 @@ namespace ladaplotter.UI.MeasurementPlots
     public class LogDataPlotViewModel
     {
 
-        public ObservableCollection<IMeasurementPlotViewModel> MeasurementPlotViewModels =
+        public ObservableCollection<IMeasurementPlotViewModel> MeasurementPlotViewModels { get; } =
             new ObservableCollection<IMeasurementPlotViewModel>();
 
 

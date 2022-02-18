@@ -4,16 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ladaplotter.UI.MeasurementPlots"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:data="clr-namespace:ladaplotter.Resources.Data;assembly=ladaplotter.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <ItemsControl Name="ScrollViewer" ItemsSource="{Binding MeasurementPlotViewModels }" >
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Vertical" ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+        <ItemsControl  ItemsSource="{Binding MeasurementPlotViewModels }" >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <ContentControl cal:View.Model="{Binding}"></ContentControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
         </ItemsControl>
     </ScrollViewer>
 </UserControl>
