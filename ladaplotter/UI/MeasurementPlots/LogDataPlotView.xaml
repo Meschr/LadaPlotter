@@ -14,7 +14,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <ContentControl cal:View.Model="{Binding}"></ContentControl>
+                        <Button Content="test123"></Button>
                     </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

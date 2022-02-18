@@ -23,6 +23,11 @@ namespace ladaplotter.UI.MeasurementPlots
         public LogDataPlotView()
         {
             InitializeComponent();
+            DataContextChanged += DataPlotView_OnDataContextChanged;
+        }
+        private void DataPlotView_OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
         }
     }
 }
