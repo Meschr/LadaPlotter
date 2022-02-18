@@ -1,0 +1,28 @@
+﻿        private async void ButtonClickAsync(object sender, RoutedEventArgs e)
+        {
+            var fileDialog = new Microsoft.Win32.OpenFileDialog() { Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*" };
+            var result = fileDialog.ShowDialog();
+            if (result != false)
+            {
+                var path = fileDialog.FileName;
+                await HeavyMethodAsync(path);
+            }
+        }
+
+        internal async Task HeavyMethodAsync(String in_path)
+        {
+            var logDataReader = new LogDataReader();
+            await logDataReader.ReadDataFile(in_path);
+            var dataList = logDataReader.DataList;
+            var dataX = new List<double>();
+            var dataY= new List<double>();
+
+            for (int i = 0; i < dataList.Count; i++)
+            {
+                dataX.Add(Convert.ToDouble(dataList[i].index));
+                dataY.Add(dataList[i].pos);
+            }
+
+            dataPlot.Plot.AddSignal(dataY.ToArray(), 1000);
+            dataPlot.Render();
+        }

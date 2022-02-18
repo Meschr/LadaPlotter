@@ -1,0 +1,8 @@
+﻿- Decorator schreiben für GSF.Communication
+- Views strukturieren
+- DataHandler + ComputationHandler
+- SettingsDialog (Zahnrad oben rechts --> abspeichern als JSON?)
+- eventuell vergleichseite
+- factory/ioc container ?
+
+- für themes https://jkarger.de/2014/11/27/mahapps-metro-themes/

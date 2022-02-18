@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net472</TargetFramework>
+	  <UseWPF>true</UseWPF>
+	  <AssemblyTitle>ladaplotter.tests</AssemblyTitle>
+	  <OutputPath>bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ladaplotter.Resources\ladaplotter.Resources.csproj" />
+    <ProjectReference Include="..\ladaplotter\ladaplotter.csproj" />
+  </ItemGroup>
+
+</Project>
