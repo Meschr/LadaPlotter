@@ -139,10 +139,14 @@
       <DependentUpon>LogDataPlotView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\MeasurementPlots\LogDataPlotViewModel.cs" />
+    <Compile Include="UI\MeasurementPlots\VelocityMeasurementPlotView.xaml.cs">
+      <DependentUpon>VelocityMeasurementPlotView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\MeasurementPlots\PositionMeasurementPlotView.xaml.cs">
       <DependentUpon>PositionMeasurementPlotView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\MeasurementPlots\PositionMeasurementPlotViewModel.cs" />
+    <Compile Include="UI\MeasurementPlots\VelocityMeasurementPlotViewModel.cs" />
     <Compile Include="UI\ViewModels\DataPlotViewModel.cs" />
     <Compile Include="UI\ViewModels\DataTabViewModel.cs" />
     <Compile Include="UI\ViewModels\DataListViewModel.cs" />
@@ -201,6 +205,10 @@
     <Page Include="UI\MeasurementPlots\LogDataPlotView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MeasurementPlots\VelocityMeasurementPlotView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\MeasurementPlots\PositionMeasurementPlotView.xaml">
       <SubType>Designer</SubType>

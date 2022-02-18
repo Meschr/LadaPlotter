@@ -18,9 +18,9 @@ namespace ladaplotter.UI.MeasurementPlots
     /// <summary>
     /// Interaction logic for PositionMeasurementPlotView.xaml
     /// </summary>
-    public partial class PositionMeasurementPlotView : UserControl
+    public partial class VelocityMeasurementPlotView : UserControl
     {
-        public PositionMeasurementPlotView()
+        public VelocityMeasurementPlotView()
         {
             InitializeComponent();
             DataContextChanged += DataPlotView_OnDataContextChanged;
@@ -28,13 +28,13 @@ namespace ladaplotter.UI.MeasurementPlots
 
         private void DataPlotView_OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue is PositionMeasurementPlotViewModel positionMeasurementPlotViewModel)
+            if (e.NewValue is VelocityMeasurementPlotViewModel velocityMeasurementPlotViewModel)
             {
                 PlotGrid.Children.Clear();
 
-                PlotGrid.Children.Add(positionMeasurementPlotViewModel.Plot);
+                PlotGrid.Children.Add(velocityMeasurementPlotViewModel.Plot);
 
-                positionMeasurementPlotViewModel.Plot.Render();
+                velocityMeasurementPlotViewModel.Plot.Render();
             }
         }
 

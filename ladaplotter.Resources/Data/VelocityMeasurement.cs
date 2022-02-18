@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Text;
 
 namespace ladaplotter.Resources.Data
 {
-    public class PositionMeasurement : IMeasurement
+    public class VelocityMeasurement : IMeasurement
     {
-        public PositionMeasurement(List<double> values, int samplingRate, String unit)
+        public VelocityMeasurement(List<double> values, int samplingRate, String unit)
         {
             Values = values;
             SamplingRate = samplingRate;
             Unit = unit;
-            Plotable = true; 
+            Plotable = true;
         }
         public List<double> Values { get; set; }
         public int SamplingRate { get; set; }

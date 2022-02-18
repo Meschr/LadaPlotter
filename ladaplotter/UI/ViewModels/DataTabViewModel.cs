@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using ladaplotter.Resources.Logic;
 using ladaplotter.UI.MeasurementPlots;
 
 namespace ladaplotter.UI.ViewModels
@@ -17,6 +18,25 @@ namespace ladaplotter.UI.ViewModels
         {
             _dataListViewModel = new DataListViewModel();
             _dataPlotViewModel = new LogDataPlotViewModel();
+        }
+
+
+        public async void ChooseFile()
+        {
+            var fileDialog = new Microsoft.Win32.OpenFileDialog() { Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*" };
+            var result = fileDialog.ShowDialog();
+            if (result != false)
+            {
+                var path = fileDialog.FileName;
+                await HeavyMethodAsync(path);
+            }
+        }
+
+        internal async Task HeavyMethodAsync(string in_path)
+        {
+            var logDataReader = new LogDataReaderFromFile1();
+            await logDataReader.Read(in_path);
+            DataPlotViewModel.UpdateUI(logDataReader.LogData);
         }
 
         public DataListViewModel LocalDataListViewModel

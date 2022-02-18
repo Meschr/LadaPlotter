@@ -19,7 +19,7 @@ namespace ladaplotter.UI.ViewModels
 
         public void LogoIcon()
         {
-            string targetWebsite = "https://youtu.be./7zDNBeelzUM?t=392";
+            string targetWebsite = "https://www.youtube.com/watch?v=VU2d_Pld3w8";
 
             try
             {

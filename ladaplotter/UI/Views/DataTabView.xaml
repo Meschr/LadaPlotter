@@ -24,6 +24,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1">
+                <Button Name="ChooseFile" Content="chooseFile" />
                 <ContentControl cm:View.Model ="{Binding DataPlotViewModel}"/>
             </StackPanel>
         </Grid>
