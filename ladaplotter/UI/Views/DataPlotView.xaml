@@ -7,14 +7,17 @@
 
     <GroupBox Header="Plot area" BorderBrush="{DynamicResource MahApps.Brushes.Accent}" Background="LightGray"
               Margin="5">
+    <StackPanel>
         <ScrollViewer>
             <Grid>
                 <Grid x:Name="ChartGrid"
                       HorizontalAlignment="Stretch"
                       VerticalAlignment="Stretch" />
-
-                <Button Name="ChooseFile" Content="chooseFile" />
             </Grid>
         </ScrollViewer>
+
+        <Button Name="ChooseFile" Content="chooseFile" />
+
+        </StackPanel>
     </GroupBox>
 </UserControl>

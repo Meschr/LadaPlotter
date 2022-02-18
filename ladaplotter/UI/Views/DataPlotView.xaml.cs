@@ -26,8 +26,8 @@ namespace ladaplotter.UI.Views
     {
         public DataPlotView()
         {
-            
             InitializeComponent();
+            DataContextChanged += DataPlotView_OnDataContextChanged;
         }
 
         private void DataPlotView_OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -35,9 +35,9 @@ namespace ladaplotter.UI.Views
             if (e.NewValue is DataPlotViewModel dataPlotViewModel)
             {
                 ChartGrid.Children.Clear();
-                ChartGrid.Children.Add(dataPlotViewModel.WpfPlot);
+                ChartGrid.Children.Add(dataPlotViewModel.SignalPlot);
 
-                dataPlotViewModel.WpfPlot.Render();
+                dataPlotViewModel.SignalPlot.Render();
             }
         }
     }
