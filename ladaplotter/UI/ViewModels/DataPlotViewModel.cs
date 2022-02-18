@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Data;
@@ -11,26 +12,23 @@ namespace ladaplotter.UI.ViewModels
 {
     public class DataPlotViewModel : PropertyChangedBase
     {
-        private WpfPlot _signalPlot;
+        private WpfPlot _positionPlot;
 
         private LogData1 _dataContext;
 
         public DataPlotViewModel()
         {
-            SignalPlot = new WpfPlot();
-            YFormatter = value => value.ToString("N");
+            PositionPlot = new WpfPlot();
         }
 
-        public string[] Labels { get; set; }
-        public Func<double, string> YFormatter { get; set; }
-
-        public WpfPlot SignalPlot
+        public WpfPlot PositionPlot
         {
-            get => _signalPlot;
+            get => _positionPlot;
             set
             {
-                _signalPlot = value;
-                InitSignalPlot();
+                _positionPlot = value;
+                InitPositionPlot();
+                NotifyOfPropertyChange(() => PositionPlot);
             }
         }
 
@@ -50,6 +48,7 @@ namespace ladaplotter.UI.ViewModels
             var logDataReader = new LogDataReaderFromFile1();
             await logDataReader.Read(in_path);
             _dataContext = logDataReader.LogData;
+            
             UpdateChart();
         }
 
@@ -59,25 +58,25 @@ namespace ladaplotter.UI.ViewModels
             if(_dataContext == null)
                 return;
             
-            _signalPlot.Plot.Clear();
-            _signalPlot.Plot.AddSignal(_dataContext.Measurements.FirstOrDefault().Values.ToArray(), 1000);
-            _signalPlot.Plot.Title(_dataContext.Measurements.FirstOrDefault().Values.Count + " Samples");
-            _signalPlot.Plot.Render();
+            _positionPlot.Plot.Clear();
+            _positionPlot.Plot.AddSignal(_dataContext.Measurements.FirstOrDefault().Values.ToArray(), 1000, Color.Coral);
+            _positionPlot.Plot.Title(_dataContext.Measurements.FirstOrDefault().Values.Count + " Samples");
+            _positionPlot.Render();
         }
 
-        private void InitSignalPlot()
+        private void InitPositionPlot()
         {
             var rand = new Random(0);
             var values = DataGen.RandomWalk(rand, 100_000);
             var sampleRate = 20_000;
 
             // Signal plots require a data array and a sample rate (points per unit)
-            _signalPlot.Plot.Style(Style.Gray1);
-            _signalPlot.Height = 400;
-            _signalPlot.Plot.AddSignal(values, sampleRate);
-            _signalPlot.Plot.Benchmark(true);
-            _signalPlot.Plot.Title("Signal Plot: One Million Points");
-            _signalPlot.Plot.Render();
+            _positionPlot.Plot.Style(Style.Gray1);
+            _positionPlot.Height = 400;
+            _positionPlot.Plot.AddSignal(values, sampleRate);
+            _positionPlot.Plot.Benchmark(true);
+            _positionPlot.Plot.Title("Signal Plot: One Million Points");
+            _positionPlot.Plot.Render();
         }
     }
 }

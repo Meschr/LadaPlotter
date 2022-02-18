@@ -134,6 +134,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="UI\MeasurementPlots\IMeasurementPlotViewModel.cs" />
+    <Compile Include="UI\MeasurementPlots\PositionMeasurementPlotView.xaml.cs">
+      <DependentUpon>PositionMeasurementPlotView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MeasurementPlots\PositionMeasurementPlotViewModel.cs" />
     <Compile Include="UI\ViewModels\DataPlotViewModel.cs" />
     <Compile Include="UI\ViewModels\DataTabViewModel.cs" />
     <Compile Include="UI\ViewModels\DataListViewModel.cs" />
@@ -189,6 +194,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UI\MeasurementPlots\PositionMeasurementPlotView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Views\DataPlotView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

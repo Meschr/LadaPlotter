@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,18 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ladaplotter.UI.ViewModels;
-using ScottPlot;
-using ScottPlot.Plottable;
 
-namespace ladaplotter.UI.Views
+namespace ladaplotter.UI.MeasurementPlots
 {
     /// <summary>
-    /// Interaction logic for DataPlotView.xaml
+    /// Interaction logic for PositionMeasurementPlotView.xaml
     /// </summary>
-    public partial class DataPlotView
+    public partial class PositionMeasurementPlotView : UserControl
     {
-        public DataPlotView()
+        public PositionMeasurementPlotView()
         {
             InitializeComponent();
             DataContextChanged += DataPlotView_OnDataContextChanged;
@@ -32,14 +28,15 @@ namespace ladaplotter.UI.Views
 
         private void DataPlotView_OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue is DataPlotViewModel dataPlotViewModel)
+            if (e.NewValue is PositionMeasurementPlotViewModel positionMeasurementPlotViewModel)
             {
                 ChartGrid.Children.Clear();
 
-                ChartGrid.Children.Add(dataPlotViewModel.PositionPlot);
+                ChartGrid.Children.Add(positionMeasurementPlotViewModel.Plot);
 
-                dataPlotViewModel.PositionPlot.Render();
+                positionMeasurementPlotViewModel.Plot.Render();
             }
         }
+
     }
 }
