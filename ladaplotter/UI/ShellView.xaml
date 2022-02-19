@@ -1,0 +1,49 @@
+﻿<mah:MetroWindow x:Class="ladaplotter.UI.ShellView"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:cm="http://caliburnmicro.com"
+                 mc:Ignorable="d"
+                 Icon="../../WindowIcon.ico" 
+                 ShowIconOnTitleBar="false"
+                 TitleAlignment="center"
+                 Title="LadaPlotter" Height="450" Width="800"
+                 WindowStartupLocation="CenterScreen"
+                 GlowBrush="{DynamicResource MahApps.Brushes.Accent}">
+
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands>
+            <Button Name="LogoIcon" ToolTip="massaaaaaaaaaah" Padding="3" cm:Message.Attach="LogoIcon">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <Image Source="../../WindowIcon.ico"/>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>
+
+    <mah:MetroAnimatedTabControl Style="{DynamicResource MahApps.Styles.TabControl.AnimatedSingleRow}">
+        <mah:MetroTabItem Header="UDP-Streaming">
+            <ContentControl x:Name="DeviceCommunicationTabViewModel"/>
+        </mah:MetroTabItem>
+
+        <mah:MetroTabItem Header="Device">
+
+        </mah:MetroTabItem>
+
+        <mah:MetroTabItem Header="Data">
+            <ContentControl x:Name="LocalDataTabViewModel"/>
+        </mah:MetroTabItem>
+
+        <mah:MetroTabItem Header="LiveMode">
+
+        </mah:MetroTabItem>
+
+        <mah:MetroTabItem Header="Statistics">
+
+        </mah:MetroTabItem>
+    </mah:MetroAnimatedTabControl>
+</mah:MetroWindow>

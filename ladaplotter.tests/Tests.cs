@@ -1,6 +1,6 @@
 ﻿using System;
 using ladaplotter.Resources.Logging;
-using ladaplotter.UI.ViewModels;
+using ladaplotter.UI;
 using log4net;
 using Xunit;
 

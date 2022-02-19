@@ -1,52 +1,32 @@
-﻿namespace ladaplotter.Resources.Data
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
+using System.Text;
+
+namespace ladaplotter.Resources.Data
 {
-    public struct SAccelerationData
+    public class LogData
     {
-        public SAccelerationData(int in_acceleration_x, int in_acceleration_y, int in_acceleration_z)
+        private ObservableCollection<IMeasurement> _measurements = new ObservableCollection<IMeasurement>();
+
+        public bool Processed { get;}
+
+        public LogData()
         {
-            acceleration_x = in_acceleration_x;
-            acceleration_y = in_acceleration_y;
-            acceleration_z = in_acceleration_z;
+            Processed = false;
+            TimeStamp = DateTime.Now; //todo später auslesen aus logfile
         }
 
-        private int acceleration_x { get; }
-        private int acceleration_y { get; }
-        private int acceleration_z { get; }
-    }
-
-    internal struct SRotationData
-    {
-        public SRotationData(int in_rotation_x, int in_rotation_y, int in_rotation_z)
+        public void AddMeasurement(IMeasurement measurement)
         {
-            rotation_x = in_rotation_x;
-            rotation_y = in_rotation_y;
-            rotation_z = in_rotation_z;
+            _measurements.Add(measurement);
         }
 
-        private int rotation_x { get; }
-        private int rotation_y { get; }
-        private int rotation_z { get; }
-    }
+        public DateTime TimeStamp { get; private set; }
 
-    public struct SLogData
-    {
-        public SLogData(uint in_index, bool in_marker, double in_pos, int in_adc0 = 0,
-            SAccelerationData in_accelerationData = default)
-        {
-            index = in_index;
-            marker = in_marker;
-            pos = in_pos;
+        public String Name { get; set; }
 
-            // unused
-            adc0 = in_adc0;
-            acceleration_data = in_accelerationData;
-        }
-
-        public uint index { get; }
-        public bool marker { get; }
-        public double pos { get; }
-        public int adc0 { get; }
-
-        private SAccelerationData acceleration_data;
+        public ObservableCollection<IMeasurement> Measurements => _measurements;
     }
 }

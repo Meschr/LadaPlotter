@@ -4,7 +4,7 @@ using System.IO;
 using System.Windows;
 using Caliburn.Micro;
 using ladaplotter.Resources.Logging;
-using ladaplotter.UI.ViewModels;
+using ladaplotter.UI;
 
 namespace ladaplotter
 {

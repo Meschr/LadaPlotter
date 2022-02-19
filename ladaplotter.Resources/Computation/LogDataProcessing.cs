@@ -1,14 +1,11 @@
 ﻿using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net.Http.Headers;
 using ladaplotter.Resources.Data;
-using ladaplotter.Resources.UDP;
 
 namespace ladaplotter.Resources.Computation
 {
     public class LogDataProcessing
     {
-        public void ProcessLogData(LogData1 logData)
+        public void ProcessLogData(LogData logData)
         {
             if(logData.Processed)
                 return;

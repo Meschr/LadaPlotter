@@ -1,5 +1,4 @@
 ﻿- Decorator schreiben für GSF.Communication
-- Views strukturieren
 - DataHandler + ComputationHandler
 - SettingsDialog (Zahnrad oben rechts --> abspeichern als JSON?)
 - eventuell vergleichseite

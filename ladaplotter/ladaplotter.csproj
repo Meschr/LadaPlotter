@@ -134,43 +134,39 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="UI\MeasurementPlots\IMeasurementPlotViewModel.cs" />
-    <Compile Include="UI\MeasurementPlots\LogDataPlotView.xaml.cs">
+    <Compile Include="UI\TabElements\DataTab\MeasurementPlots\IMeasurementPlotViewModel.cs" />
+    <Compile Include="UI\TabElements\DataTab\LogDataPlotView.xaml.cs">
       <DependentUpon>LogDataPlotView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\MeasurementPlots\LogDataPlotViewModel.cs" />
-    <Compile Include="UI\MeasurementPlots\SignalMeasurementPlotView.xaml.cs">
+    <Compile Include="UI\TabElements\DataTab\LogDataPlotViewModel.cs" />
+    <Compile Include="UI\TabElements\DataTab\MeasurementPlots\SignalMeasurementPlotView.xaml.cs">
       <DependentUpon>SignalMeasurementPlotView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\MeasurementPlots\SignalMeasurementPlotViewModel.cs" />
-    <Compile Include="UI\MeasurementPlots\VelocityMeasurementPlotView.xaml.cs">
+    <Compile Include="UI\TabElements\DataTab\MeasurementPlots\SignalMeasurementPlotViewModel.cs" />
+    <Compile Include="UI\TabElements\DataTab\MeasurementPlots\VelocityMeasurementPlotView.xaml.cs">
       <DependentUpon>VelocityMeasurementPlotView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\MeasurementPlots\PositionMeasurementPlotView.xaml.cs">
+    <Compile Include="UI\TabElements\DataTab\MeasurementPlots\PositionMeasurementPlotView.xaml.cs">
       <DependentUpon>PositionMeasurementPlotView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\MeasurementPlots\PositionMeasurementPlotViewModel.cs" />
-    <Compile Include="UI\MeasurementPlots\VelocityMeasurementPlotViewModel.cs" />
-    <Compile Include="UI\ViewModels\DataPlotViewModel.cs" />
-    <Compile Include="UI\ViewModels\DataTabViewModel.cs" />
-    <Compile Include="UI\ViewModels\DataListViewModel.cs" />
-    <Compile Include="UI\Views\DataPlotView.xaml.cs">
-      <DependentUpon>DataPlotView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Views\DataTabView.xaml.cs">
+    <Compile Include="UI\TabElements\DataTab\MeasurementPlots\PositionMeasurementPlotViewModel.cs" />
+    <Compile Include="UI\TabElements\DataTab\MeasurementPlots\VelocityMeasurementPlotViewModel.cs" />
+    <Compile Include="UI\TabElements\DataTab\DataTabViewModel.cs" />
+    <Compile Include="UI\TabElements\DataTab\DataListViewModel.cs" />
+    <Compile Include="UI\TabElements\DataTab\DataTabView.xaml.cs">
       <DependentUpon>DataTabView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Views\DataListView.xaml.cs">
+    <Compile Include="UI\TabElements\DataTab\DataListView.xaml.cs">
       <DependentUpon>DataListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Views\ShellView.xaml.cs">
+    <Compile Include="UI\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\ViewModels\ShellViewModel.cs" />
-    <Compile Include="UI\Views\UDPTestView.xaml.cs">
-      <DependentUpon>UDPTestView.xaml</DependentUpon>
+    <Compile Include="UI\ShellViewModel.cs" />
+    <Compile Include="UI\TabElements\DeviceCommunicationTab\DeviceCommunicationTabView.xaml.cs">
+      <DependentUpon>DeviceCommunicationTabView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\ViewModels\UDPTestViewModel.cs" />
+    <Compile Include="UI\TabElements\DeviceCommunicationTab\DeviceCommunicationTabViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -206,39 +202,35 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="UI\MeasurementPlots\LogDataPlotView.xaml">
+    <Page Include="UI\TabElements\DataTab\LogDataPlotView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\MeasurementPlots\SignalMeasurementPlotView.xaml">
+    <Page Include="UI\TabElements\DataTab\MeasurementPlots\SignalMeasurementPlotView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\MeasurementPlots\VelocityMeasurementPlotView.xaml">
+    <Page Include="UI\TabElements\DataTab\MeasurementPlots\VelocityMeasurementPlotView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\MeasurementPlots\PositionMeasurementPlotView.xaml">
+    <Page Include="UI\TabElements\DataTab\MeasurementPlots\PositionMeasurementPlotView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Views\DataPlotView.xaml">
+    <Page Include="UI\TabElements\DataTab\DataTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Views\DataTabView.xaml">
+    <Page Include="UI\TabElements\DataTab\DataListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Views\DataListView.xaml">
+    <Page Include="UI\ShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI\Views\ShellView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\Views\UDPTestView.xaml">
+    <Page Include="UI\TabElements\DeviceCommunicationTab\DeviceCommunicationTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

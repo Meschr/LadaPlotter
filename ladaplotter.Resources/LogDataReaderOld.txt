@@ -2,25 +2,24 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using ladaplotter.Resources.Data;
 
 namespace ladaplotter.Resources.Logic
 {
     public class LogDataReaderFromFile : ILogDataReader
     {
-        public LogData LogData { get; private set; }
+        private List<Data.SLogData> _DataList = new List<Data.SLogData>();
+        public List<Data.SLogData> DataList { get { return _DataList; } set{} }
 
-        public async Task Read(string path)
+        public async Task Read(String in_path)
         {
-            LogData = new LogData();
+            _DataList.Clear();
 
-            using (var fileReader = File.OpenText(path))
+            using (var fileReader = File.OpenText(in_path))
             {
                 var fileText = await fileReader.ReadToEndAsync();
                 var stringReader = new System.IO.StringReader(fileText);
                 var line = stringReader.ReadLine();
 
-                var positionValues = new List<double>();
                 while (line != null)
                 {
                     var linesplit = line.Split(new[] { "," }, StringSplitOptions.None);
@@ -32,13 +31,9 @@ namespace ladaplotter.Resources.Logic
                     if (linesplit.Length >= 2) marker = Convert.ToInt32(linesplit[1]) != 0;
                     if (linesplit.Length >= 1) pos = Convert.ToDouble(linesplit[0]);
 
-                    positionValues.Add(pos);
-
+                    _DataList.Add(new Data.SLogData(index, marker, pos));
                     line = stringReader.ReadLine(); // read next line
                 }
-
-                PositionMeasurement position = new PositionMeasurement(positionValues.ToArray(), 1000);
-                LogData.AddMeasurement(position);
             }
         }
     }
