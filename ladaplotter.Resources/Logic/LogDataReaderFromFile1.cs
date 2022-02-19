@@ -20,7 +20,7 @@ namespace ladaplotter.Resources.Logic
                 var stringReader = new System.IO.StringReader(fileText);
                 var line = stringReader.ReadLine();
 
-                List<double> positionValues = new List<double>();
+                var positionValues = new List<double>();
                 while (line != null)
                 {
                     var linesplit = line.Split(new[] { "," }, StringSplitOptions.None);
@@ -37,7 +37,7 @@ namespace ladaplotter.Resources.Logic
                     line = stringReader.ReadLine(); // read next line
                 }
 
-                PositionMeasurement position = new PositionMeasurement(positionValues, 1000, "mm");
+                PositionMeasurement position = new PositionMeasurement(positionValues.ToArray(), 1000);
                 LogData.AddMeasurement(position);
             }
         }

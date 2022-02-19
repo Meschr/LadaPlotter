@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using ladaplotter.Resources.Data;
 using ladaplotter.Resources.Logic;
 using ladaplotter.UI.MeasurementPlots;
 
@@ -36,7 +37,7 @@ namespace ladaplotter.UI.ViewModels
         {
             var logDataReader = new LogDataReaderFromFile1();
             await logDataReader.Read(in_path);
-            DataPlotViewModel.UpdateUI(logDataReader.LogData);
+            DataPlotViewModel.UpdateUI(logDataReader.LogData); //todo refactor LogDataReader
         }
 
         public DataListViewModel LocalDataListViewModel

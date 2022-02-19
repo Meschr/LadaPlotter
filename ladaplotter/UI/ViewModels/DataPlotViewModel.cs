@@ -59,7 +59,7 @@ namespace ladaplotter.UI.ViewModels
             
             _positionPlot.Plot.Clear();
             _positionPlot.Plot.AddSignal(_dataContext.Measurements.FirstOrDefault().Values.ToArray(), 1000, Color.Coral);
-            _positionPlot.Plot.Title(_dataContext.Measurements.FirstOrDefault().Values.Count + " Samples");
+            _positionPlot.Plot.Title(_dataContext.Measurements.FirstOrDefault().Values.Length + " Samples");
             _positionPlot.Render();
         }
 

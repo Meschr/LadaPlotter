@@ -6,16 +6,18 @@ namespace ladaplotter.Resources.Data
 {
     public class PositionMeasurement : IMeasurement
     {
-        public PositionMeasurement(List<double> values, int samplingRate, String unit)
+        public PositionMeasurement(double[] values, int samplingRate)
         {
             Values = values;
+            Name = "Position";
             SamplingRate = samplingRate;
-            Unit = unit;
+            Unit = "mm";
             Plotable = true; 
         }
-        public List<double> Values { get; set; }
-        public int SamplingRate { get; set; }
+        public double[] Values { get; set; }
+        public string Name { get; }
+        public int SamplingRate { get; }
         public bool Plotable { get; set; }
-        public string Unit { get; set; }
+        public string Unit { get; }
     }
 }

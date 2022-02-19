@@ -10,8 +10,11 @@ namespace ladaplotter.Resources.Data
     {
         private ObservableCollection<IMeasurement> _measurements = new ObservableCollection<IMeasurement>();
 
+        public bool Processed { get;}
+
         public LogData1()
         {
+            Processed = false;
             TimeStamp = DateTime.Now; //todo später auslesen aus logfile
         }
 

@@ -6,9 +6,11 @@ namespace ladaplotter.Resources.Data
 {
     public interface IMeasurement
     {
-        List<double> Values { get; set; }
+        double[] Values { get; set; }
+
+        string Name { get; }
         int SamplingRate { get; }
         bool Plotable { get; set; }
-        String Unit { get; set; }
+        String Unit { get; }
     }
 }

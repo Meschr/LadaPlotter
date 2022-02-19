@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Drawing;
-using System.Linq;
 using ladaplotter.Resources.Data;
 using ScottPlot;
 
 namespace ladaplotter.UI.MeasurementPlots
 {
-    public class VelocityMeasurementPlotViewModel : IMeasurementPlotViewModel
+    public class SignalMeasurementPlotViewModel : IMeasurementPlotViewModel
     {
-        private VelocityMeasurement _velocityMeasurement;
+        private IMeasurement _measurement;
 
         private WpfPlot _plot;
 
-        public VelocityMeasurementPlotViewModel(VelocityMeasurement measurement)
+        public SignalMeasurementPlotViewModel(IMeasurement measurement)
         {
-            _velocityMeasurement = measurement;
+            _measurement = measurement;
             Plot = new WpfPlot();
 
             if (measurement != null)
@@ -41,15 +40,15 @@ namespace ladaplotter.UI.MeasurementPlots
             _plot.Plot.Style(Style.Gray1);
             _plot.Height = 400;
             _plot.Plot.AddSignal(values, sampleRate, Color.LawnGreen);
-            _plot.Plot.Title("Velocity Plot: " + values.Length + " Sample Points");
+            _plot.Plot.Title("Empty Plot: " + values.Length + " Sample Points");
             _plot.Render();
         }
 
         public void InitPlotWithValues()
         {
             _plot.Plot.Clear();
-            _plot.Plot.AddSignal(_velocityMeasurement.Values, _velocityMeasurement.SamplingRate, Color.LawnGreen);
-            _plot.Plot.Title("Velocity Plot: " + _velocityMeasurement.Values.Length + " Sample Points");
+            _plot.Plot.AddSignal(_measurement.Values, _measurement.SamplingRate, Color.LawnGreen);
+            _plot.Plot.Title(_measurement.Name + " " + _measurement.Values.Length + " Data Points");
             _plot.Render();
         }
     }

@@ -10,6 +10,5 @@ namespace ladaplotter.UI.MeasurementPlots
     public interface IMeasurementPlotViewModel
     {
         WpfPlot Plot { get; set; }
-
     }
 }
