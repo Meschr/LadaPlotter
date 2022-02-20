@@ -7,11 +7,13 @@ namespace ladaplotter.UI.TabElements.DataTab
     public class DataTabViewModel : PropertyChangedBase
     {
         private DataListViewModel _dataListViewModel;
+        private DataToolboxViewModel _dataToolboxViewModel;
         private LogDataPlotViewModel _dataPlotViewModel;
 
         public DataTabViewModel()
         {
             _dataListViewModel = new DataListViewModel();
+            _dataToolboxViewModel = new DataToolboxViewModel();
             _dataPlotViewModel = new LogDataPlotViewModel();
         }
 
@@ -31,7 +33,7 @@ namespace ladaplotter.UI.TabElements.DataTab
         {
             var logDataReader = new LogDataReaderFromFile();
             await logDataReader.Read(in_path);
-            DataPlotViewModel.UpdateUI(logDataReader.LogData); //todo refactor LogDataReader
+            DataPlotViewModel.UpdateUi(logDataReader.LogData); //todo refactor LogDataReader
         }
 
         public DataListViewModel LocalDataListViewModel
@@ -40,6 +42,16 @@ namespace ladaplotter.UI.TabElements.DataTab
             set
             {
                 _dataListViewModel= value;
+                NotifyOfPropertyChange();
+            }
+        }
+
+        public DataToolboxViewModel DataToolboxViewModel
+        {
+            get => _dataToolboxViewModel;
+            set
+            {
+                _dataToolboxViewModel = value;
                 NotifyOfPropertyChange();
             }
         }
@@ -53,5 +65,7 @@ namespace ladaplotter.UI.TabElements.DataTab
                 NotifyOfPropertyChange();
             }
         }
+
+       
     }
 }

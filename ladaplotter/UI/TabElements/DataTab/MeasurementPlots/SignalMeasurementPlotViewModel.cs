@@ -49,6 +49,7 @@ namespace ladaplotter.UI.TabElements.DataTab.MeasurementPlots
             _plot.Plot.Clear();
             _plot.Plot.AddSignal(_measurement.Values, _measurement.SamplingRate, Color.LawnGreen);
             _plot.Plot.Title(_measurement.Name + " " + _measurement.Values.Length + " Data Points");
+            _plot.Plot.YLabel(_measurement.Name + " in " + _measurement.Unit);
             _plot.Render();
         }
     }

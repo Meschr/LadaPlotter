@@ -15,7 +15,10 @@ namespace ladaplotter.UI.TabElements.DataTab
         }
         private void DataPlotView_OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-
+            if (e.NewValue is LogDataPlotViewModel logDataPlotViewModel)
+            {
+                PlotScrollViewer.PreviewMouseWheel += logDataPlotViewModel.ScrollViewer_PreviewMouseWheel;
+            }
         }
     }
 }

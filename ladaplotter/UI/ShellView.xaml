@@ -10,6 +10,7 @@
                  ShowIconOnTitleBar="false"
                  TitleAlignment="center"
                  Title="LadaPlotter" Height="450" Width="800"
+                 WindowState="Maximized"
                  WindowStartupLocation="CenterScreen"
                  GlowBrush="{DynamicResource MahApps.Brushes.Accent}">
 

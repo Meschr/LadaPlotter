@@ -20,10 +20,11 @@
 
             <StackPanel Grid.Column="0">
                 <ContentControl x:Name="LocalDataListViewModel"/>
+                <Button Name="ChooseFile" Content="chooseFile"/>
+                <ContentControl x:Name="DataToolboxViewModel"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <Button Name="ChooseFile" Content="chooseFile" />
                 <ContentControl cm:View.Model ="{Binding DataPlotViewModel}"/>
             </StackPanel>
         </Grid>

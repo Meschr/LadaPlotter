@@ -134,6 +134,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="UI\TabElements\DataTab\DataToolboxView.xaml.cs">
+      <DependentUpon>DataToolboxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TabElements\DataTab\DataToolboxViewModel.cs" />
     <Compile Include="UI\TabElements\DataTab\MeasurementPlots\IMeasurementPlotViewModel.cs" />
     <Compile Include="UI\TabElements\DataTab\LogDataPlotView.xaml.cs">
       <DependentUpon>LogDataPlotView.xaml</DependentUpon>
@@ -202,6 +206,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UI\TabElements\DataTab\DataToolboxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\TabElements\DataTab\LogDataPlotView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

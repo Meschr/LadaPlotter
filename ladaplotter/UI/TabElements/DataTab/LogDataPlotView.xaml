@@ -7,16 +7,23 @@
              xmlns:data="clr-namespace:ladaplotter.Resources.Data;assembly=ladaplotter.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <ItemsControl  ItemsSource="{Binding MeasurementPlotViewModels }" >
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <ContentControl cal:View.Model="{Binding}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </ScrollViewer>
+    <GroupBox Header="Measurement Plots" BorderBrush ="{DynamicResource MahApps.Brushes.Accent}" Margin="5">
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+            
+            <ScrollViewer VerticalScrollBarVisibility="Visible" Name="PlotScrollViewer" Height="900">
+                <ItemsControl  ItemsSource="{Binding MeasurementPlotViewModels }" >
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <ContentControl cal:View.Model="{Binding}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </GroupBox>
 </UserControl>
