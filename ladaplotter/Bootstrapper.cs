@@ -31,6 +31,7 @@ namespace ladaplotter
 
         protected override void Configure()
         {
+           
         }
 
         private void CheckLogDirectory()

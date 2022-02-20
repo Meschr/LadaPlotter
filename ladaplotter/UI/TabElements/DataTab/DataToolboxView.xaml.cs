@@ -24,5 +24,6 @@ namespace ladaplotter.UI.TabElements.DataTab
         {
             InitializeComponent();
         }
+
     }
 }
