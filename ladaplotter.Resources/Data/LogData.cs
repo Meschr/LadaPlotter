@@ -25,7 +25,7 @@ namespace ladaplotter.Resources.Data
 
         public DateTime TimeStamp { get; private set; }
 
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         public ObservableCollection<IMeasurement> Measurements => _measurements;
     }

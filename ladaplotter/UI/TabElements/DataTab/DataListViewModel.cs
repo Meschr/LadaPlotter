@@ -17,7 +17,7 @@ namespace ladaplotter.UI.TabElements.DataTab
 
         public DataListViewModel()
         {
-            PeriodicFooAsync(new TimeSpan(0, 0, 3),PeriodicUpdateTaskCancellationToken);
+            _ = PeriodicFooAsync(new TimeSpan(0, 0, 3), PeriodicUpdateTaskCancellationToken);
         }
 
         public async Task PeriodicFooAsync(TimeSpan interval, CancellationToken cancellationToken)
@@ -36,13 +36,13 @@ namespace ladaplotter.UI.TabElements.DataTab
             foreach (string filepath in Directory.GetFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "Ladadogger\\MeasurementData\\"), "*.txt"))
             {
-                LocalMeasurements.Add(String.Copy(filepath));
+                LocalMeasurements.Add(Path.GetFileNameWithoutExtension(filepath));
             }
         }
 
         public string SelectedItem
         {
-            get => _selectedItem; 
+            get => _selectedItem;
             set
             {
                 if (_selectedItem != value)
@@ -51,6 +51,10 @@ namespace ladaplotter.UI.TabElements.DataTab
                     NotifyOfPropertyChange();
                 }
             }
+        }
+        public void SelectionChanged(Object sender, EventArgs e)
+        {
+
         }
     }
 }

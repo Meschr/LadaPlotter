@@ -20,8 +20,8 @@
 
             <StackPanel Grid.Column="0">
                 <ContentControl x:Name="LocalDataListViewModel"/>
-                <Button Name="ChooseFile" Content="chooseFile"/>
-                <ContentControl x:Name="DataToolboxViewModel"/>
+                <Button Name="LoadDataFromFile" Content="load data from file" Margin="5,0,5,0"/>
+                <ContentControl x:Name="DataToolboxViewModel" Margin="5,0,0,0"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1">

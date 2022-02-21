@@ -19,13 +19,11 @@
 
         <mah:ToggleSwitch OffContent="Connect Plots"
                           OnContent="Disconnect Plots"
-                          Margin="5,0,0,0"
                           Grid.Row="0"
                           cm:Message.Attach="[Event Toggled] = [Action  ConnectPlotsToggled($source,$eventArgs)]"/>
        
         <mah:ToggleSwitch OffContent="Enable Scrolling"
                           OnContent="Disable Scrolling"
-                          Margin="5,0,0,0"
                           Grid.Row="1"
                           cm:Message.Attach="[Event Toggled] = [Action EnableScrollToggled($source,$eventArgs)]"/>
     </Grid>

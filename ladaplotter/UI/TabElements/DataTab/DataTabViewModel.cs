@@ -18,7 +18,7 @@ namespace ladaplotter.UI.TabElements.DataTab
         }
 
 
-        public async void ChooseFile()
+        public async void LoadDataFromFile()
         {
             var fileDialog = new Microsoft.Win32.OpenFileDialog() { Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*" };
             var result = fileDialog.ShowDialog();
