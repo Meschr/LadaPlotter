@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using Caliburn.Micro;
 
 namespace ladaplotter.UI.TabElements.DataTab
@@ -9,16 +11,27 @@ namespace ladaplotter.UI.TabElements.DataTab
     {
         private string _selectedItem;
 
-        public ObservableCollection<string> LocalMeasurements { get; private set; } =
-            new ObservableCollection<string>();
+        public CancellationToken PeriodicUpdateTaskCancellationToken { get; } = new CancellationToken();
+
+        public ObservableCollection<string> LocalMeasurements { get; private set; } = new ObservableCollection<string>();
 
         public DataListViewModel()
         {
-            FillListBoxWithExistingFiles();
+            PeriodicFooAsync(new TimeSpan(0, 0, 3),PeriodicUpdateTaskCancellationToken);
         }
 
-        private void FillListBoxWithExistingFiles()
+        public async Task PeriodicFooAsync(TimeSpan interval, CancellationToken cancellationToken)
         {
+            while (true)
+            {
+                await FillListBoxWithExistingFiles();
+                await Task.Delay(interval, cancellationToken);
+            }
+        }
+
+        private async Task FillListBoxWithExistingFiles()
+        {
+            LocalMeasurements.Clear();
             //Get all files with a .txt extension:
             foreach (string filepath in Directory.GetFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "Ladadogger\\MeasurementData\\"), "*.txt"))

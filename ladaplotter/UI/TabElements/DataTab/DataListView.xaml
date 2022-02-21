@@ -7,10 +7,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <StackPanel>
-
         <GroupBox Header="local measurements" BorderBrush ="{DynamicResource MahApps.Brushes.Accent}" Background="LightGray"  Margin="5">
-            <ListBox Name ="LocalMeasurements" SelectedItem="{Binding  SelectedItem, Mode=TwoWay}" SelectionMode="Single">
-            </ListBox>
+            <ListBox ItemsSource="{Binding LocalMeasurements}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" SelectionMode="Single" Height="Auto"/>
         </GroupBox>
     </StackPanel>
 </UserControl>
