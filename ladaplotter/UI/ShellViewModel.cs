@@ -8,6 +8,7 @@ namespace ladaplotter.UI
     public class ShellViewModel : PropertyChangedBase
     {
         private static readonly ILogger Logger = Logger<ShellViewModel>.Create();
+        private readonly IEventAggregator _eventAggregator = new EventAggregator();
 
         private DeviceCommunicationTabViewModel _deviceCommunicationTabViewModel;
         private DataTabViewModel _localDataTabViewModel;
@@ -15,7 +16,7 @@ namespace ladaplotter.UI
         public ShellViewModel()
         {
             _deviceCommunicationTabViewModel = new DeviceCommunicationTabViewModel();
-            _localDataTabViewModel = new DataTabViewModel();
+            _localDataTabViewModel = new DataTabViewModel(_eventAggregator);
         }
 
 

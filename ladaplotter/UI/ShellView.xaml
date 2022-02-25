@@ -5,6 +5,7 @@
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:cm="http://caliburnmicro.com"
+                 xmlns:cal="http://www.caliburnproject.org"
                  mc:Ignorable="d"
                  Icon="../../WindowIcon.ico" 
                  ShowIconOnTitleBar="false"
@@ -16,7 +17,7 @@
 
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
-            <Button Name="LogoIcon" ToolTip="massaaaaaaaaaah" Padding="3" cm:Message.Attach="LogoIcon">
+            <Button Name="LogoIcon" ToolTip="massaaaaaaaaaah" Padding="3" cal:Message.Attach="LogoIcon">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <Image Source="../../WindowIcon.ico"/>

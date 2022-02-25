@@ -4,21 +4,28 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using ladaplotter.Resources.Events;
 
 namespace ladaplotter.UI.TabElements.DataTab
 {
     public class DataListViewModel : PropertyChangedBase
     {
+        private readonly IEventAggregator _eventAggregator;
+
         private string _selectedItem;
+
+        private string logDataFolderFilepath =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "Ladadogger\\MeasurementData\\");
+        public DataListViewModel(IEventAggregator eventAggregator)
+        {
+            _eventAggregator = eventAggregator;
+            _ = PeriodicFooAsync(new TimeSpan(0, 0, 3), PeriodicUpdateTaskCancellationToken);
+        }
 
         public CancellationToken PeriodicUpdateTaskCancellationToken { get; } = new CancellationToken();
 
         public ObservableCollection<string> LocalMeasurements { get; private set; } = new ObservableCollection<string>();
-
-        public DataListViewModel()
-        {
-            _ = PeriodicFooAsync(new TimeSpan(0, 0, 3), PeriodicUpdateTaskCancellationToken);
-        }
 
         public async Task PeriodicFooAsync(TimeSpan interval, CancellationToken cancellationToken)
         {
@@ -33,8 +40,7 @@ namespace ladaplotter.UI.TabElements.DataTab
         {
             LocalMeasurements.Clear();
             //Get all files with a .txt extension:
-            foreach (string filepath in Directory.GetFiles(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "Ladadogger\\MeasurementData\\"), "*.txt"))
+            foreach (string filepath in Directory.GetFiles(logDataFolderFilepath, "*.txt"))
             {
                 LocalMeasurements.Add(Path.GetFileNameWithoutExtension(filepath));
             }
@@ -54,7 +60,7 @@ namespace ladaplotter.UI.TabElements.DataTab
         }
         public void SelectionChanged(Object sender, EventArgs e)
         {
-
+            _eventAggregator.PublishOnCurrentThread(new LogDataChangedEvent(SelectedItem,logDataFolderFilepath+SelectedItem+".txt"));
         }
     }
 }

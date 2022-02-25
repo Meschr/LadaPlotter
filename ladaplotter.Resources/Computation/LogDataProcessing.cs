@@ -19,6 +19,8 @@ namespace ladaplotter.Resources.Computation
                     logData.AddMeasurement(velocityMeasurement);
                 }
             }
+
+            logData.Processed = true;
         }
 
         private double [] ComputeVelocity(PositionMeasurement positionMeasurement)

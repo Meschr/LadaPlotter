@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:ladaplotter.UI.TabElements.DataTab"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:cm="http://caliburnmicro.com"
+             xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -20,11 +21,12 @@
         <mah:ToggleSwitch OffContent="Connect Plots"
                           OnContent="Disconnect Plots"
                           Grid.Row="0"
-                          cm:Message.Attach="[Event Toggled] = [Action  ConnectPlotsToggled($source,$eventArgs)]"/>
+                          cal:Message.Attach="[Event Toggled] = [Action  ConnectPlotsToggled($source,$eventArgs)]"/>
        
-        <mah:ToggleSwitch OffContent="Enable Scrolling"
-                          OnContent="Disable Scrolling"
+        <mah:ToggleSwitch OffContent="Scrolling disabled"
+                          OnContent="Scrolling enabled"
+                          IsOn="True"
                           Grid.Row="1"
-                          cm:Message.Attach="[Event Toggled] = [Action EnableScrollToggled($source,$eventArgs)]"/>
+                          cal:Message.Attach="[Event Toggled] = [Action EnableScrollToggled($source,$eventArgs)]"/>
     </Grid>
 </UserControl>

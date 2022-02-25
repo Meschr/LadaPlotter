@@ -10,7 +10,7 @@ namespace ladaplotter.Resources.Data
     {
         private ObservableCollection<IMeasurement> _measurements = new ObservableCollection<IMeasurement>();
 
-        public bool Processed { get;}
+        public bool Processed { get; set; }
 
         public LogData()
         {

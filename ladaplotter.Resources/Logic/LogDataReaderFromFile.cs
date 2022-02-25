@@ -8,12 +8,11 @@ namespace ladaplotter.Resources.Logic
 {
     public class LogDataReaderFromFile : ILogDataReader
     {
-        public LogData LogData { get; private set; }
 
-        public async Task Read(string path)
+        public async Task<LogData> Read(string path)
         {
-            LogData = new LogData();
-
+            var logData = new LogData();
+            logData.Name = Path.GetFileNameWithoutExtension(path);
             using (var fileReader = File.OpenText(path))
             {
                 var fileText = await fileReader.ReadToEndAsync();
@@ -38,8 +37,10 @@ namespace ladaplotter.Resources.Logic
                 }
 
                 PositionMeasurement position = new PositionMeasurement(positionValues.ToArray(), 1000);
-                LogData.AddMeasurement(position);
+                logData.AddMeasurement(position);
             }
+
+            return logData;
         }
     }
 }

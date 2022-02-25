@@ -1,20 +1,31 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Windows.Documents;
 using Caliburn.Micro;
+using ladaplotter.Resources.Data;
+using ladaplotter.Resources.Events;
 using ladaplotter.Resources.Logic;
 
 namespace ladaplotter.UI.TabElements.DataTab
 {
-    public class DataTabViewModel : PropertyChangedBase
+    public class DataTabViewModel : PropertyChangedBase , IHandle<LogDataChangedEvent>
     {
+        private readonly IEventAggregator _eventAggregator;
+
         private DataListViewModel _dataListViewModel;
         private DataToolboxViewModel _dataToolboxViewModel;
         private LogDataPlotViewModel _dataPlotViewModel;
 
-        public DataTabViewModel()
+        private List<LogData> _loadedLogData = new List<LogData>();
+
+        public DataTabViewModel(IEventAggregator eventAggregator)
         {
-            _dataListViewModel = new DataListViewModel();
-            _dataToolboxViewModel = new DataToolboxViewModel();
-            _dataPlotViewModel = new LogDataPlotViewModel();
+            _eventAggregator = eventAggregator;
+            _eventAggregator.Subscribe(this);
+            _dataListViewModel = new DataListViewModel(eventAggregator);
+            _dataToolboxViewModel = new DataToolboxViewModel(eventAggregator);
+            _dataPlotViewModel = new LogDataPlotViewModel(eventAggregator);
         }
 
 
@@ -32,8 +43,33 @@ namespace ladaplotter.UI.TabElements.DataTab
         internal async Task HeavyMethodAsync(string in_path)
         {
             var logDataReader = new LogDataReaderFromFile();
-            await logDataReader.Read(in_path);
-            DataPlotViewModel.UpdateUi(logDataReader.LogData); //todo refactor LogDataReader
+            var logData = await logDataReader.Read(in_path);
+            _loadedLogData.Add(logData);
+            DataPlotViewModel.UpdateUi(logData); //todo refactor LogDataReader
+        }
+
+        public void Handle(LogDataChangedEvent message)
+        {
+            var isAlreadyLoaded = false;
+            var currentLogData = new LogData();
+            foreach (var logData in _loadedLogData)
+            {
+                if (logData.Name == message.LogDataName)
+                {
+                    currentLogData = logData;
+                    isAlreadyLoaded = true;
+                }
+
+            }
+
+            if (isAlreadyLoaded)
+            {
+                DataPlotViewModel.UpdateUi(currentLogData);
+            }
+            else
+            {
+                HeavyMethodAsync(message.Filepath);
+            }
         }
 
         public DataListViewModel LocalDataListViewModel
@@ -65,7 +101,5 @@ namespace ladaplotter.UI.TabElements.DataTab
                 NotifyOfPropertyChange();
             }
         }
-
-       
     }
 }
