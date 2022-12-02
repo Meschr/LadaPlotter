@@ -146,9 +146,13 @@
       <DependentUpon>LogDataPlotView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\TabElements\DataTab\LogDataPlotViewModel.cs" />
+    <Compile Include="UI\TabElements\DataTab\MeasurementPlots\MultipleSignalMeasurementPlotView.xaml.cs">
+      <DependentUpon>MultipleSignalMeasurementPlotView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\TabElements\DataTab\MeasurementPlots\SignalMeasurementPlotView.xaml.cs">
       <DependentUpon>SignalMeasurementPlotView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\TabElements\DataTab\MeasurementPlots\MultipleSignalMeasurementPlotViewModel.cs" />
     <Compile Include="UI\TabElements\DataTab\MeasurementPlots\SignalMeasurementPlotViewModel.cs" />
     <Compile Include="UI\TabElements\DataTab\DataTabViewModel.cs" />
     <Compile Include="UI\TabElements\DataTab\DataListViewModel.cs" />
@@ -208,6 +212,10 @@
     <Page Include="UI\TabElements\DataTab\LogDataPlotView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TabElements\DataTab\MeasurementPlots\MultipleSignalMeasurementPlotView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\TabElements\DataTab\MeasurementPlots\SignalMeasurementPlotView.xaml">
       <SubType>Designer</SubType>

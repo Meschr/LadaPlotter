@@ -1,7 +1,8 @@
-﻿- Decorator schreiben für GSF.Communication
-- DataHandler + ComputationHandler
+﻿- DataHandler + ComputationHandler
 - SettingsDialog (Zahnrad oben rechts --> abspeichern als JSON?)
 - eventuell vergleichseite
 - factory/ioc container ?
+
+- wenn file gelöscht wird auch objekt löschen
 
 - für themes https://jkarger.de/2014/11/27/mahapps-metro-themes/

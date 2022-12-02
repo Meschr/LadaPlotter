@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ladaplotter.Resources.Data
+﻿namespace ladaplotter.Resources.Data
 {
     public interface IMeasurement
     {
@@ -11,6 +7,6 @@ namespace ladaplotter.Resources.Data
         string Name { get; }
         int SamplingRate { get; }
         bool Plotable { get; set; }
-        String Unit { get; }
+        string Unit { get; }
     }
 }

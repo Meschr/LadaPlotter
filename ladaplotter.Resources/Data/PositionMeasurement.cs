@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-
-namespace ladaplotter.Resources.Data
+﻿namespace ladaplotter.Resources.Data
 {
     public class PositionMeasurement : IMeasurement
     {
@@ -12,8 +8,9 @@ namespace ladaplotter.Resources.Data
             Name = "Position";
             SamplingRate = samplingRate;
             Unit = "mm";
-            Plotable = true; 
+            Plotable = true;
         }
+
         public double[] Values { get; set; }
         public string Name { get; }
         public int SamplingRate { get; }

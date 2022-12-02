@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ladaplotter.Resources.Data
+﻿namespace ladaplotter.Resources.Data
 {
     public class AccelerationMeasurement : IMeasurement
     {
@@ -11,7 +7,7 @@ namespace ladaplotter.Resources.Data
             Values = values;
             Name = "Acceleration";
             SamplingRate = samplingRate;
-            Unit = "m/s^2";
+            Unit = "g";
             Plotable = true;
         }
 

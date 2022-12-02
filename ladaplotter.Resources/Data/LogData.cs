@@ -1,32 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
-using System.Text;
+using System.Linq;
 
 namespace ladaplotter.Resources.Data
 {
     public class LogData
     {
-        private ObservableCollection<IMeasurement> _measurements = new ObservableCollection<IMeasurement>();
-
-        public bool Processed { get; set; }
-
         public LogData()
         {
             Processed = false;
             TimeStamp = DateTime.Now; //todo später auslesen aus logfile
         }
 
-        public void AddMeasurement(IMeasurement measurement)
-        {
-            _measurements.Add(measurement);
-        }
+        public bool Processed { get; set; }
 
-        public DateTime TimeStamp { get; private set; }
+        public DateTime TimeStamp { get; }
 
         public string Name { get; set; }
 
-        public ObservableCollection<IMeasurement> Measurements => _measurements;
+        public ObservableCollection<IMeasurement> Measurements { get; } = new ObservableCollection<IMeasurement>();
+
+        public void AddMeasurement(IMeasurement measurement)
+        {
+            Measurements.Add(measurement);
+        }
+        public bool Any()
+        {
+            return Measurements.Any();
+        }
     }
 }
